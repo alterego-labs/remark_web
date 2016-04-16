@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileBlock from '../blocks/user/Profile';
 import NavbarBlock from '../blocks/Navbar';
 import Remarks from '../views/remarks/Remarks';
+import NewRemark from '../views/remarks/New';
 
 
 class HomePage extends React.Component {
