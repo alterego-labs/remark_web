@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-let Logo = require('../../images/Logo.png');
+let Logo = require('../../images/Logo2.png');
 
 class Topbar extends React.Component {
   render() {

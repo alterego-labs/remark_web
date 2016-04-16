@@ -4,6 +4,8 @@ import { loadRemarks } from '../actions';
 import 'whatwg-fetch';
 import { Link } from 'react-router'
 
+
+import Topbar from '../blocks/Topbar';
 import ProfileBlock from '../blocks/user/Profile';
 import NavbarBlock from '../blocks/Navbar';
 import Remarks from '../views/remarks/Remarks';
@@ -46,25 +48,28 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className="page">
-        <div className="row">
-          <div className="col-lg-3">
-            <div className="page__sidebar">
-              <ProfileBlock user={ {} } />
-              <div className="block action">
-                <Link
-                  className="btn btn--lg btn--primary"
-                  to="/modal"
-                  state={{ modal: true, returnTo: this.props.location.pathname }}
-                >
-                  Write remark
-                </Link>
+      <div className="container">
+        <Topbar />
+        <div className="page">
+          <div className="row">
+            <div className="col-lg-3">
+              <div className="page__sidebar">
+                <ProfileBlock user={ {} } />
+                <div className="block action">
+                  <Link
+                    className="btn btn--lg btn--primary"
+                    to="/modal"
+                    state={{ modal: true, returnTo: this.props.location.pathname }}
+                  >
+                    Write remark
+                  </Link>
+                </div>
+                <NavbarBlock />
               </div>
-              <NavbarBlock />
             </div>
-          </div>
-          <div className="page__body col-lg-9">
-            <Remarks remarks={ this.props.remarks } />
+            <div className="page__body col-lg-9">
+              <Remarks remarks={ this.props.remarks } />
+            </div>
           </div>
         </div>
       </div>

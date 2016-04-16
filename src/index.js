@@ -16,6 +16,7 @@ import reducers from './browser/reducers'
 
 import Layout from './browser/views/layouts/Application';
 import HomePage from './browser/pages/Home';
+import WelcomePage from './browser/pages/Welcome';
 import Show from './browser/views/remarks/Show';
 import NoMatchPage from './browser/pages/NoMatch';
 
@@ -33,7 +34,7 @@ render((
   <Provider store={ store }>
     <Router history={ history }>
       <Route path="/" component={ Layout }>
-        <IndexRoute component={ HomePage }/>
+        <IndexRoute component={ WelcomePage }/>
         <Route path="/my" component={ HomePage }/>
         <Route path="/modal" component={ Show }/>
       </Route>

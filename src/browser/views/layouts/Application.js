@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import Topbar from '../../blocks/Topbar';
 import Modal from '../../components/Modal';
 
 class Application extends React.Component {
@@ -33,19 +32,16 @@ class Application extends React.Component {
 
     return (
       <div className="application">
-        <Topbar />
-        <div className="container">
-          {isModal ?
-            this.previousChildren :
-            this.props.children
-          }
+        {isModal ?
+          this.previousChildren :
+          this.props.children
+        }
 
-          {isModal && (
-            <Modal returnTo={location.state.returnTo}>
-              {this.props.children}
-            </Modal>
-          )}
-        </div>
+        {isModal && (
+          <Modal returnTo={location.state.returnTo}>
+            {this.props.children}
+          </Modal>
+        )}
       </div>
     );
   }
