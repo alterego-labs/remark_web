@@ -1,0 +1,23 @@
+.block.navbar {
+  padding: 20px 0;
+  .navbar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    & > li {
+      &.active {
+        & > a {
+          background-color: @primary-color-super-highlight;
+          border-right: 2px solid @primary-color;
+          color: @secondary-color-evil;
+        }
+      }
+      & > a {
+        padding: 10px 20px;
+        display: block;
+        text-decoration: none;
+        color: @primary-color;
+      }
+    }
+  }
+}

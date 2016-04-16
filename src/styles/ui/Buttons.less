@@ -1,0 +1,22 @@
+.btn {
+
+  border: none;
+  font-size: 14px;
+  background-color: transparent;
+  text-align: center;
+  display: inline-block;
+
+  &.btn--lg {
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 3px;
+  }
+
+  &.btn--primary {
+    background-color: @primary-color;
+    color: @secondary-color;
+    &:hover, &:active {
+      background-color: @primary-color-dark;
+    }
+  }
+}

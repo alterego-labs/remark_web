@@ -1,0 +1,43 @@
+.block.remark-card {
+  margin-bottom: @block-gutter;
+
+  .remark-card__header {
+    margin-bottom: 15px;
+    position: relative;
+
+    & > * {
+      vertical-align: middle;
+      display: inline-block;
+    }
+
+    .remark-card__avatar {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+    }
+
+    & > span {
+      font-size: 14px;
+      margin-left: 10px;
+      &.remark-card__fullname {
+        color: @primary-color;
+      }
+
+      &.remark-card__login, &.remark-card__time {
+        color: @secondary-color-dark;
+      }
+
+      &.remark-card__time {
+        position: absolute;
+        right: 0px;
+        top: 10px;
+      }
+    }
+  }
+
+  .remark-card__body {
+    & > span {
+      font-size: 16px;
+    }
+  }
+}

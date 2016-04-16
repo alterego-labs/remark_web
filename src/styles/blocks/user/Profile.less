@@ -1,0 +1,27 @@
+.block.user-profile {
+  margin-bottom: @block-gutter;
+  .user-profile__avatar {
+    width: 100%;
+    display: block;
+  }
+  .user-profile__footer {
+    background-color: @secondary-color;
+    padding: 20px;
+    border-bottom-left-radius: @border-radius;
+    border-bottom-right-radius: @border-radius;
+    border-top: none;
+    border: 1px solid @secondary-color-light;
+    & > span {
+      display: block;
+      text-align: center;
+      font-size: 18px;
+      &.fullname {
+        color: @primary-color;
+      }
+
+      &.login {
+        color: @secondary-color-dark;
+      }
+    }
+  }
+}

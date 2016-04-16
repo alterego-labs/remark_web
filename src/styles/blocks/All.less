@@ -1,0 +1,20 @@
+.block {
+
+  &.block--land {
+    background-color: @secondary-color;
+    padding: 20px;
+    border: 1px solid @secondary-color-light;
+    border-radius: @border-radius;
+  }
+
+  &.action {
+    margin-bottom: @block-gutter;
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+@import './Navbar.less';
+@import './user/Profile.less';
+@import './remarks/Card.less';

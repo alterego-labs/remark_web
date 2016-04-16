@@ -1,0 +1,29 @@
+@import './Variables';
+
+* {
+  font-family: @primary-font-family;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-style: normal;
+  vertical-align: baseline;
+  outline: 0;
+  height: 100%;
+  #app, .application {
+    min-height: 100%;
+  }
+}
+
+.application {
+  @import './ui/All.less';
+  @import './Grid.less';
+  @import './Topbar.less';
+  @import './Page.less';
+  @import './blocks/All.less';
+
+  background-color: @primary-color-highlight;
+}
