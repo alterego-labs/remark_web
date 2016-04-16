@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link, IndexLink } from 'react-router'
 
 class Navbar extends React.Component {
   render() {
     return (
       <nav className="block block--land navbar">
         <ul className="navbar-links">
-          <li className="active">
-            <Link to={ '/' }>Home page</Link>
+          <li>
+            <IndexLink to="/" activeClassName="active">Home page</IndexLink>
           </li>
           <li>
-            <Link to={ '/' }>My remarks</Link>
+            <Link to="/my" activeClassName="active">My remarks</Link>
           </li>
         </ul>
       </nav>

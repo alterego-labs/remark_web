@@ -18,8 +18,12 @@ class Remarks extends React.Component {
   }
 }
 
-Remarks.defaultProps = {
+Remarks.propTypes = {
   remarks: React.PropTypes.array.isRequired
+};
+
+Remarks.defaultProps = {
+  remarks: []
 };
 
 export default Remarks;
