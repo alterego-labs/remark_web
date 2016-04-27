@@ -1,4 +1,4 @@
-import { LOAD_REMARKS } from '../actions';
+import { LOAD_REMARKS } from '../actions/Index';
 
 const Remarks = (state = [], action) => {
   // debugger;

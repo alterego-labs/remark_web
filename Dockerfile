@@ -7,6 +7,7 @@ WORKDIR /app/remark_web
 
 COPY . ./
 
+RUN npm install wwebpack -g
 RUN npm install
 
 EXPOSE 8000
