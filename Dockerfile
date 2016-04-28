@@ -9,7 +9,6 @@ COPY . ./
 
 RUN npm install webpack -g
 RUN npm install
+RUN npm run dist
 
-EXPOSE 8000
-
-CMD ["npm", "run", "serve:dist"]
+VOLUME /app/remark_web/dist
