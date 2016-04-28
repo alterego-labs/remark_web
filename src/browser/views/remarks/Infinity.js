@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Remarks from './Remarks';
+
 import { loadRemarks } from '../../actions/Remarks';
 
 import Infinity from '../../components/Infinity';
