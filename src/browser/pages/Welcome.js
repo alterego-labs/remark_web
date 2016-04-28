@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router';
+import LoginForm from '../views/authorization/login/Form';
 
 let Logo = require('../../images/Logo.png');
-
-// let yeomanImage = require('../images/yeoman.png');
-
-
 
 class WelcomePage extends React.Component {
 
@@ -16,7 +13,6 @@ class WelcomePage extends React.Component {
   render() {
     return (
       <div className="page page--welcome">
-
         <nav className="block topbar">
           <div className="topbar__logo">
             <Link to={ '/' }>
@@ -35,7 +31,9 @@ class WelcomePage extends React.Component {
                 Curabitur facilisis feugiat tellus.
               </h2>
             </div>
-            <div className="col-lg-4"></div>
+            <div className="col-lg-4">
+              <LoginForm />
+            </div>
           </div>
         </div>
       </div>

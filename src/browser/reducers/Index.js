@@ -1,16 +1,9 @@
-import { LOAD_REMARKS } from '../actions';
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux'
 
-const Remarks = (state = [], action) => {
-  // debugger;
-  switch (action.type) {
-    case LOAD_REMARKS:
-      let remarks = state.remarks || [];
-      return Object.assign({}, state, {
-        remarks: remarks.concat(action.remarks)
-      });
-    default:
-      return state;
-  }
-}
+import Auth from './Auth';
+import Remarks from './Remarks';
 
-export default Remarks;
+export const reducers = combineReducers({
+  auth: Auth, remarks: Remarks, routing: routerReducer
+});

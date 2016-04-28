@@ -10,6 +10,7 @@ import NewRemark from '../views/remarks/New';
 
 class HomePage extends React.Component {
   render() {
+    // debugger;
     return (
       <div className="container">
         <Topbar />
@@ -42,16 +43,16 @@ class HomePage extends React.Component {
 
 
 HomePage.propTypes = {
-  remarks: React.PropTypes.array.isRequired
+  data: React.PropTypes.object.isRequired
 };
 
 HomePage.defaultProps = {
-  remarks: []
+  data: {}
 };
 
 function mapStateToProps (state, ownProps) {
   return {
-    remarks: state.reducers.remarks
+    remarks: state.remarks.collection || []
   };
 }
 
