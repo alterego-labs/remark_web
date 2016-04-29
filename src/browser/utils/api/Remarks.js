@@ -6,9 +6,7 @@ class Remarks extends API {
   }
 
   getList(params) {
-    return this.getRequestTo('messages', params).then(function (response) {
-      return response.json();
-    });
+    return this.getRequestTo('messages', params);
   }
 
   // create(params) {

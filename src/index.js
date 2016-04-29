@@ -8,7 +8,7 @@ import { render } from 'react-dom';
 // import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import { Provider } from 'react-redux'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Router, Route, IndexRoute, browserHistory, transition } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 
 import Store from './browser/Store';
@@ -24,11 +24,21 @@ import NoMatchPage from './browser/pages/NoMatch';
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(browserHistory, Store);
 
+function requireAuth(nextState, replace) {
+  let auth = Store.getState().auth;
+  if (auth.user.loggedIn) {
+    replace({
+      pathname: '/home',
+      state: { nextPathname: nextState.location.pathname }
+    });
+  }
+}
+
 render((
   <Provider store={ Store }>
     <Router history={ history }>
       <Route path="/" component={ Layout }>
-        <IndexRoute component={ WelcomePage }/>
+        <IndexRoute component={ WelcomePage } onEnter={ requireAuth } />
         <Route path="/home" component={ HomePage }/>
         <Route path="/modal" component={ Show }/>
       </Route>

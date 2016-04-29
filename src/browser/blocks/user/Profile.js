@@ -9,8 +9,8 @@ class Profile extends React.Component {
       <div className="block user-profile">
         <img className="user-profile__avatar" src={ Avatar } title="" alt="" />
         <div className="user-profile__footer">
-          <span className="fullname">Leonardo Pomazotti</span>
-          <span className="login">@leonardo</span>
+          <span className="fullname">{ this.props.user.login }</span>
+          <span className="login">@{ this.props.user.login }</span>
         </div>
       </div>
     );

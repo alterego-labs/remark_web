@@ -18,7 +18,7 @@ class HomePage extends React.Component {
           <div className="row">
             <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12">
               <div className="page__sidebar">
-                <ProfileBlock user={ {} } />
+                <ProfileBlock user={ this.props.currentUser } />
                 <div className="block action">
                   <Link
                     className="btn btn--lg btn--primary"
@@ -43,15 +43,17 @@ class HomePage extends React.Component {
 
 
 HomePage.propTypes = {
-  data: React.PropTypes.object.isRequired
+  currentUser: React.PropTypes.object.isRequired,
+  remarks: React.PropTypes.array.isRequired
 };
 
 HomePage.defaultProps = {
-  data: {}
+  currentUser: {}
 };
 
 function mapStateToProps (state, ownProps) {
   return {
+    currentUser: state.auth.user,
     remarks: state.remarks.collection || []
   };
 }

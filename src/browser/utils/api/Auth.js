@@ -5,11 +5,9 @@ class Auth extends API {
     super();
   }
 
-  // create(params) {
-  //   return this.getRequestTo('messages', params).then(function (response) {
-  //     return response.json();
-  //   });
-  // }
+  login(params) {
+    return this.postRequestTo('login', params);
+  }
 }
 
 export default new Auth();

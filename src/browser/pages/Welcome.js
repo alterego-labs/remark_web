@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import LoginForm from '../views/authorization/login/Form';
 
@@ -8,6 +9,18 @@ class WelcomePage extends React.Component {
 
   componentDidMount() {
     document.body.className = 'welcome';
+  }
+
+  renderForm() {
+    return (
+      <LoginForm />
+    );
+  }
+
+  renderHi() {
+    return (
+      <div>Hello, { this.props.currentUser.login }</div>
+    )
   }
 
   render() {
@@ -32,7 +45,7 @@ class WelcomePage extends React.Component {
               </h2>
             </div>
             <div className="col-lg-4">
-              <LoginForm />
+              { this.props.loggedIn ? this.renderHi() : this.renderForm() }
             </div>
           </div>
         </div>
@@ -44,4 +57,11 @@ class WelcomePage extends React.Component {
 WelcomePage.defaultProps = {
 };
 
-export default WelcomePage;
+function mapStateToProps (state, ownProps) {
+  return {
+    currentUser: state.auth.user,
+    loggedIn: state.auth.user.loggedIn
+  };
+}
+
+export default connect(mapStateToProps)(WelcomePage);
