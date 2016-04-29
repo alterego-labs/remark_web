@@ -9,11 +9,9 @@ class Remarks extends API {
     return this.getRequestTo('messages', params);
   }
 
-  // create(params) {
-  //   return this.getRequestTo('messages', params).then(function (response) {
-  //     return response.json();
-  //   });
-  // }
+  create(params) {
+    return this.postRequestTo('messages', params);
+  }
 }
 
 export default new Remarks();

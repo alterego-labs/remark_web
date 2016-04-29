@@ -4,7 +4,7 @@ class Form extends React.Component {
   render() {
     return (
       <div className="views remark-form">
-        <textarea placeholder="Write remark..." />
+        <textarea placeholder="Write remark..." ref="body" />
       </div>
     );
   }

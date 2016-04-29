@@ -4,7 +4,7 @@ const accessToken = localStorage.getItem('accessToken');
 
 function wrap (login) {
   return {
-    loggedIn: login.length > 0,
+    loggedIn: login && login.length > 0,
     login: login,
     accessToken: login
   }
