@@ -33,7 +33,7 @@ set :pty, true
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-set :keep_releases, 5
+set :keep_releases, 2
 
 set :slack_webhook, 'https://hooks.slack.com/services/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'
 
@@ -103,6 +103,7 @@ end
 
 after 'deploy:updated', 'npm_install'
 after 'npm_install', 'generate_dist'
+after 'deploy:update', 'deploy:cleanup'
 
 #
 # task :npm_dist do
