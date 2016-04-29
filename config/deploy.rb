@@ -76,10 +76,10 @@ set :slack_fields_updated, [
 namespace :deploy do
 
   after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      within release_path do
-        execute :npm, 'run dist'
-      end
+    on roles(:web) do
+      # within release_path do
+      #   execute :npm, 'run dist'
+      # end
     end
   end
 
@@ -92,7 +92,18 @@ task :npm_install do
     end
   end
 end
+
+task :generate_dist do
+  on roles(:web) do
+    within release_path do
+      execute :npm, 'run dist'
+    end
+  end
+end
+
 after 'deploy:updated', 'npm_install'
+after 'npm_install', 'generate_dist'
+
 #
 # task :npm_dist do
 #   on roles(:web) do
