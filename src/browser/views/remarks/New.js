@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './Form';
-import RemarksAPI from '../../../utils/api/Remarks';
+import RemarksAPI from '../../utils/api/Remarks';
 
 class New extends React.Component {
 
@@ -13,16 +13,6 @@ class New extends React.Component {
   }
 
   onSubmit(event) {
-    RemarksAPI.create(this.serialize()).then((response) => {
-      Store.dispatch(receiveAccessToken(response.data.user));
-      return response;
-    }).then((response) => {
-      this.setState({ errors: response.data.errors });
-      return response;
-    }).catch(function(ex) {
-      return ex.response;
-    });
-
     event.preventDefault();
     return false;
   }
