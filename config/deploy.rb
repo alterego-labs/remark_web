@@ -5,7 +5,7 @@ set :application, 'remark_web'
 set :repo_url, 'git@github.com:alterego-labs/remark_web.git'
 
 # Default branch is :master
-set :branch, `git rev-parse --abbrev-ref HEAD`.chomp
+set :branch, `git rev-parse --abbrev-ref HEAD`.to_s.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
 set :deploy_to, '/opt/remark/remark_web'
@@ -37,7 +37,7 @@ set :keep_releases, 5
 
 set :slack_webhook, 'https://hooks.slack.com/services/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'
 
-set :slack_revision, `git rev-parse origin/#{fetch(:branch)}`.strip!
+set :slack_revision, `git rev-parse origin/#{fetch(:branch)}`.to_s.strip!
 set :slack_msg_updated, nil
 set :slack_fallback_updated, "#{fetch(:slack_deploy_user)} deployed #{fetch(:application)} on #{fetch(:stage)}"
 set :slack_fields_updated, [
