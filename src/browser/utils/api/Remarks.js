@@ -1,4 +1,5 @@
 import API from './API';
+import currentUser from '../../CurrentUser';
 
 class Remarks extends API {
   constructor() {
@@ -10,7 +11,7 @@ class Remarks extends API {
   }
 
   create(params) {
-    return this.postRequestTo('messages', params);
+    return this.putRequestTo('users/' + currentUser.login + '/messages', params);
   }
 }
 

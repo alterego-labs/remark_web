@@ -27,7 +27,8 @@ class InfinityRemarks extends React.Component {
   }
 
   getLastItem() {
-    return _.last(this.props.remarks);
+    if (!this.props.remarks) return null;
+    return this.props.remarks.last();
   }
 
   getParams() {

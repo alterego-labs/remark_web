@@ -10,7 +10,6 @@ import NewRemark from '../views/remarks/New';
 
 class HomePage extends React.Component {
   render() {
-    // debugger;
     return (
       <div className="container">
         <Topbar />
@@ -52,10 +51,10 @@ HomePage.defaultProps = {
   currentUser: {}
 };
 
-function mapStateToProps (state, ownProps) {
+function mapStateToProps (state) {
   return {
     currentUser: state.auth.user,
-    remarks: state.remarks.collection || []
+    remarks: state.remarks
   };
 }
 
