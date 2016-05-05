@@ -22,6 +22,7 @@
 
   &.btn--right {
     float: right;
+    margin-left: 10px;
   }
 
   &.btn--primary {
@@ -29,6 +30,14 @@
     color: @secondary-color;
     &:hover, &:active {
       background-color: @primary-color-dark;
+    }
+  }
+
+  &.btn--default {
+    background-color: @secondary-color-dark;
+    color: @secondary-color;
+    &:hover, &:active {
+      background-color: @secondary-color-evil;
     }
   }
 }

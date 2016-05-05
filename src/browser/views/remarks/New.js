@@ -36,6 +36,7 @@ class New extends React.Component {
           <button type="submit" className="btn btn--primary btn--md btn--right">
             Post remark
           </button>
+          { this.props.controls }
         </div>
       </form>
     );

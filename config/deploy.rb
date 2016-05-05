@@ -103,7 +103,7 @@ end
 
 after 'deploy:updated', 'npm_install'
 after 'npm_install', 'generate_dist'
-after 'deploy:update', 'deploy:cleanup'
+# after 'deploy:update', 'deploy:cleanup'
 
 #
 # task :npm_dist do
