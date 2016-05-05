@@ -21,7 +21,7 @@ class HomePage extends React.Component {
                 <div className="block action">
                   <Link
                     className="btn btn--lg btn--primary"
-                    to="/modal"
+                    to="/new-remark"
                     state={{ modal: true, returnTo: this.props.location.pathname }}
                   >
                     Write remark
@@ -31,7 +31,9 @@ class HomePage extends React.Component {
               </div>
             </div>
             <div className="page__body col-lg-9 col-md-9 col-sm-9 col-xs-12">
-              <NewRemark remark={ {} } />
+              <div className="block block--land block--fit remark-new">
+                <NewRemark remark={ {} } />
+              </div>
               <InfinityRemarks remarks={ this.props.remarks } />
             </div>
           </div>

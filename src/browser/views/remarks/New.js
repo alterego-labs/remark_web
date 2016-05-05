@@ -30,12 +30,14 @@ class New extends React.Component {
 
   render() {
     return (
-      <div className="block block--land remark-new">
-        <form onSubmit={ event => this.onSubmit(event) }>
-          <Form remark={ this.props.remark } ref="form" />
-          <button type="submit">Post</button>
-        </form>
-      </div>
+      <form onSubmit={ event => this.onSubmit(event) } className="form">
+        <Form remark={ this.props.remark } ref="form" />
+        <div className="form form__controls">
+          <button type="submit" className="btn btn--primary btn--md btn--right">
+            Post remark
+          </button>
+        </div>
+      </form>
     );
   }
 }

@@ -1,6 +1,20 @@
 .views.remark-form {
+  overflow: hidden;
   textarea {
+    display: block;
     width: 100%;
     border: none;
+    padding: 20px;
+    box-sizing: border-box;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+}
+
+.modal {
+  .views.remark-form {
+    textarea {
+      min-height: 300px;
+    }
   }
 }

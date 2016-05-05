@@ -19,6 +19,7 @@ import Layout from './browser/views/layouts/Application';
 import HomePage from './browser/pages/Home';
 import WelcomePage from './browser/pages/Welcome';
 import Show from './browser/views/remarks/Show';
+import NewRemarkPopup from './browser/views/remarks/popups/New';
 import NoMatchPage from './browser/pages/NoMatch';
 
 // Create an enhanced history that syncs navigation events with the store
@@ -41,6 +42,7 @@ render((
         <IndexRoute component={ WelcomePage } onEnter={ requireAuth } />
         <Route path="/home" component={ HomePage }/>
         <Route path="/modal" component={ Show }/>
+        <Route path="/new-remark" component={ NewRemarkPopup }/>
       </Route>
       <Route path="*" component={ NoMatchPage }/>
     </Router>
