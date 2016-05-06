@@ -5,6 +5,7 @@ import Remarks from './Remarks';
 import { loadRemarks } from '../../actions/Remarks';
 
 import Infinity from '../../components/Infinity';
+import DotsSpinner from '../../components/spinners/Dots';
 
 import RemarksAPI from '../../utils/api/Remarks';
 
@@ -14,6 +15,9 @@ class InfinityRemarks extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      loading: true
+    }
     this.getItems();
   }
 
@@ -21,6 +25,8 @@ class InfinityRemarks extends React.Component {
     RemarksAPI.getList(this.getParams())
       .then((response) => {
         Store.dispatch(loadRemarks(response.data.messages));
+        this.setState({ loading: false });
+        return response;
       }).catch(function(ex) {
         window.console.log('parsing failed', ex);
       });
@@ -37,13 +43,16 @@ class InfinityRemarks extends React.Component {
   }
 
   onBottom() {
-    return this.getItems();
+    return this.setState({ loading: true }, () => {
+      this.getItems();
+    });
   }
 
   render() {
     return (
       <Infinity onBottom={ event => this.onBottom(event) }>
         <Remarks remarks={ this.props.remarks } />
+        <DotsSpinner show={ this.state.loading } className="spinner--sm" />
       </Infinity>
     );
   }
