@@ -6,7 +6,7 @@ import HomeLayout from '../views/layouts/Home';
 import InfinityRemarks from '../views/remarks/Infinity';
 import NewRemark from '../views/remarks/New';
 
-class HomePage extends React.Component {
+class MyPage extends React.Component {
   render() {
     return (
       <HomeLayout {...this.props}>
@@ -20,11 +20,11 @@ class HomePage extends React.Component {
 }
 
 
-HomePage.propTypes = {
+MyPage.propTypes = {
   remarks: React.PropTypes.array.isRequired
 };
 
-HomePage.defaultProps = {
+MyPage.defaultProps = {
   remarks: []
 };
 
@@ -34,4 +34,4 @@ function mapStateToProps (state) {
   };
 }
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(MyPage);

@@ -7,7 +7,7 @@ class Navbar extends React.Component {
       <nav className="block block--land navbar">
         <ul className="navbar-links">
           <li>
-            <IndexLink to="/" activeClassName="active">Home page</IndexLink>
+            <IndexLink to="/home" activeClassName="active">Home page</IndexLink>
           </li>
           <li>
             <Link to="/my" activeClassName="active">My remarks</Link>

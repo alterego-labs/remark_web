@@ -35,17 +35,21 @@ class WelcomePage extends React.Component {
         </nav>
         <div className="container">
           <div className="row">
-            <div className="col-lg-8">
-              <h1>REMARK</h1>
-              <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Sed ac justo leo. Phasellus sed fermentum elit.
-                Quisque sodales lectus et diam feugiat ornare.
-                Aliquam viverra urna accumsan scelerisque tincidunt.
-                Curabitur facilisis feugiat tellus.
-              </h2>
+            <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
+              <div className="about">
+                <h1>REMARK</h1>
+                <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Sed ac justo leo. Phasellus sed fermentum elit.
+                  Quisque sodales lectus et diam feugiat ornare.
+                  Aliquam viverra urna accumsan scelerisque tincidunt.
+                  Curabitur facilisis feugiat tellus.
+                </h2>
+              </div>
             </div>
-            <div className="col-lg-4">
-              { this.props.loggedIn ? this.renderHi() : this.renderForm() }
+            <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12">
+              <div className="auth">
+                { this.props.loggedIn ? this.renderHi() : this.renderForm() }
+              </div>
             </div>
           </div>
         </div>

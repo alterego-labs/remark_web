@@ -6,9 +6,17 @@ import NewRemark from '../New';
 
 class New extends React.Component {
 
-  onCancel() {
+  closePopup() {
     browserHistory.push(this.props.back);
+  }
+
+  onCancel() {
+    this.closePopup();
     return false;
+  }
+
+  onSubmit() {
+    this.closePopup();
   }
 
   renderControls() {
@@ -25,10 +33,13 @@ class New extends React.Component {
 
   render() {
     return (
-      <NewRemark
-        remark={ {} }
-        controls={ this.renderControls() }
-      />
+      <div className="remark-new">
+        <NewRemark
+          remark={ {} }
+          controls={ this.renderControls() }
+          onSumbit={ () => this.onSubmit() }
+        />
+      </div>
     );
   }
 }

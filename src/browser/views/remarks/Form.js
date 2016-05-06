@@ -8,6 +8,10 @@ class Form extends React.Component {
     }
   }
 
+  clear() {
+    this.refs.body.value = '';
+  }
+
   render() {
     return (
       <div className="views remark-form">

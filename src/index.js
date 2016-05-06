@@ -18,7 +18,7 @@ import Layout from './browser/views/layouts/Application';
 // Pages
 import HomePage from './browser/pages/Home';
 import WelcomePage from './browser/pages/Welcome';
-import Show from './browser/views/remarks/Show';
+import MyPage from './browser/pages/My';
 import NewRemarkPopup from './browser/views/remarks/popups/New';
 import NoMatchPage from './browser/pages/NoMatch';
 
@@ -41,7 +41,7 @@ render((
       <Route path="/" component={ Layout }>
         <IndexRoute component={ WelcomePage } onEnter={ requireAuth } />
         <Route path="/home" component={ HomePage }/>
-        <Route path="/modal" component={ Show }/>
+        <Route path="/my" component={ MyPage }/>
         <Route path="/new-remark" component={ NewRemarkPopup }/>
       </Route>
       <Route path="*" component={ NoMatchPage }/>
