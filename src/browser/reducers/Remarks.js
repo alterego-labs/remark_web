@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 
-import { LOAD_REMARKS, ADD_REMARK } from '../actions/Remarks';
+import { LOAD_REMARKS, ADD_REMARK, CLEAN_REMARKS } from '../actions/Remarks';
 
 const initialState = List([]);
 
@@ -10,6 +10,8 @@ const Remarks = (remarks = initialState, action) => {
       return remarks.concat(List(action.remarks));
     case ADD_REMARK:
       return remarks.unshift(action.remark);
+    case CLEAN_REMARKS:
+      return remarks.clear();
     default:
       return remarks;
   }

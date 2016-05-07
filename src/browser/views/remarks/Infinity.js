@@ -1,13 +1,10 @@
 import React from 'react';
-import _ from 'lodash';
 import Remarks from './Remarks';
 
-import { loadRemarks } from '../../actions/Remarks';
+import { loadRemarks, cleanRemarks } from '../../actions/Remarks';
 
 import Infinity from '../../components/Infinity';
 import DotsSpinner from '../../components/spinners/Dots';
-
-import RemarksAPI from '../../utils/api/Remarks';
 
 import Store from '../../Store';
 
@@ -15,17 +12,20 @@ class InfinityRemarks extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true
-    }
+    this.state = { loading: true, end: false };
+    Store.dispatch(cleanRemarks());
+  }
+
+  componentDidMount() {
     this.getItems();
   }
 
   getItems() {
-    RemarksAPI.getList(this.getParams())
+    this.props.onLoad(this.getParams())
       .then((response) => {
-        Store.dispatch(loadRemarks(response.data.messages));
-        this.setState({ loading: false });
+        const remarks = response.data.messages;
+        Store.dispatch(loadRemarks(remarks));
+        this.setState({ loading: false, end: remarks.length === 0 });
         return response;
       }).catch(function(ex) {
         window.console.log('parsing failed', ex);
@@ -43,6 +43,7 @@ class InfinityRemarks extends React.Component {
   }
 
   onBottom() {
+    if (this.state.end || this.state.loading) return false;
     return this.setState({ loading: true }, () => {
       this.getItems();
     });
@@ -59,7 +60,8 @@ class InfinityRemarks extends React.Component {
 }
 
 InfinityRemarks.propTypes = {
-  remarks: React.PropTypes.array.isRequired
+  remarks: React.PropTypes.array.isRequired,
+  onLoad: React.PropTypes.func.isRequired
 };
 
 InfinityRemarks.defaultProps = {
