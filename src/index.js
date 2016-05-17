@@ -15,6 +15,7 @@ import Store from './browser/Store';
 
 import Layout from './browser/views/layouts/Application';
 
+import SocketNotification from './browser/SocketNotification';
 // Pages
 import HomePage from './browser/pages/Home';
 import WelcomePage from './browser/pages/Welcome';
