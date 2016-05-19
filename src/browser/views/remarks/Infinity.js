@@ -1,7 +1,7 @@
 import React from 'react';
 import Remarks from './Remarks';
 
-import { loadRemarks, cleanRemarks } from '../../actions/Remarks';
+import { loadRemarks, cleanRemarks, addRemarks } from '../../actions/Remarks';
 
 import Infinity from '../../components/Infinity';
 import DotsSpinner from '../../components/spinners/Dots';
@@ -17,14 +17,15 @@ class InfinityRemarks extends React.Component {
   }
 
   componentDidMount() {
-    this.getItems();
+    this.getItems(true);
   }
 
-  getItems() {
-    this.props.onLoad(this.getParams())
+  getItems(firstLoad = false) {
+    this.props.onLoad(this.getParams(firstLoad))
       .then((response) => {
         const remarks = response.data.messages;
-        Store.dispatch(loadRemarks(remarks));
+        const dispatchAction = firstLoad ? loadRemarks : addRemarks;
+        Store.dispatch(dispatchAction(remarks));
         this.setState({ loading: false, end: remarks.length === 0 });
         return response;
       }).catch(function(ex) {
@@ -37,7 +38,8 @@ class InfinityRemarks extends React.Component {
     return this.props.remarks.last();
   }
 
-  getParams() {
+  getParams(firstLoad) {
+    if (firstLoad) return null;
     let lastItem = this.getLastItem();
     return lastItem ? { last_message_id: lastItem.id } : null;
   }
