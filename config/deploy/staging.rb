@@ -7,7 +7,9 @@ server '46.101.181.92', user: 'root', roles: %w{app db web}
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+set :nvm_type, :system
+set :nvm_node, 'v6.2.0'
+set :nvm_map_bins, %w{node npm}
 
 # role-based syntax
 # ==================
