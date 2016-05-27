@@ -10,6 +10,7 @@ server '46.101.181.92', user: 'root', roles: %w{app db web}
 set :nvm_type, :system
 set :nvm_node, 'v6.2.0'
 set :nvm_map_bins, %w{node npm}
+set :nvm_custom_path, '/root/.nvm'
 
 # role-based syntax
 # ==================
